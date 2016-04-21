@@ -4,9 +4,12 @@ var yvel = 1;
 var xcor = 50;
 var ycor = 0;
 
-var dvd = document.getElementById("dvd");
+var vimage = document.getElementById("vimage");
+//var dvd = document.getElementById("dvd");
 
-var bounce = function(){
+var bounce = function(mydvd){
+    console.log("bouncing");
+    var dvd = mydvd;
     if(xcor >= 400){
 	xvel = -1;
     }
@@ -31,7 +34,12 @@ var bounce = function(){
 
 var animate = function(){
     console.log("button pressed");
-    window.setInterval(bounce,10);
+    var myimage = document.createElement("img");
+    myImage.setAttribute("src","dvd.jpg");
+    myImage.setAttribute("style","width: 100px;\nheight: 100px;\nposition: relative;\ntop: 0px;\nleft: 50px;");
+    vimage.appendChild(myImage);
+    window.setInterval(bounce(myImage),10);
+    console.log("click resolved");
 }
 var animateButton = document.getElementById("animate");
 animateButton.addEventListener("click",animate);
